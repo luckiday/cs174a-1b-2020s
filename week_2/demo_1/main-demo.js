@@ -15,16 +15,12 @@ window.Triangle = window.classes.Triangle =
         constructor() {
             super("positions", "normals");
             this.positions = [
-                Vec.of(0, 0, 0), Vec.of(1, 0, 0), Vec.of(0, 1, 0),
-                // Vec.of(1, 1, 0)
+                Vec.of(0, 0, 0), Vec.of(1, 0, 0), Vec.of(0, 1, 0), Vec.of(1, 1, 0)
             ];
             this.normals = [
-                Vec.of(0, 0, 1), Vec.of(0, 0, 1), Vec.of(0, 0, 1),
-                // Vec.of(0, 0, 1)
+                Vec.of(0, 0, 1), Vec.of(0, 0, 1), Vec.of(0, 0, 1), Vec.of(0, 0, 1)
             ];
-            this.indices = [0, 1, 2,
-                // 1, 2, 3
-            ];
+            this.indices = [0, 1, 2,];
         }
     };
 
@@ -61,10 +57,12 @@ window.Square_Outline = window.classes.Square_Outline =
                 ...Vec.cast(
                     // TODO: List the position of draw a square
                     [0, 0, 0], [1, 0, 0],
+                    [1, 0, 0], [1, 1, 0],
+                    [1, 1, 0], [0, 1, 0],
+                    [0, 1, 0], [0, 0, 0],
                 )
             );
-
-            this.colors = [white_c, white_c, ];
+            this.colors = [white_c, white_c, white_c, white_c, white_c, white_c, white_c, white_c,];
             this.indexed = false;
         }
     };
@@ -125,7 +123,8 @@ window.Demo_Scene = window.classes.Demo_Scene =
 
         draw_outline(graphics_state, model_transform) {
             // TODO: Define drawing function for outline
-
+            const white = Color.of(1, 1, 1, 1);
+            this.shapes.outline.draw(graphics_state, model_transform, this.white, "LINES");
         }
 
         display(graphics_state) {
@@ -133,8 +132,8 @@ window.Demo_Scene = window.classes.Demo_Scene =
             graphics_state.lights = this.lights;
 
             let model_transform = Mat4.identity();
-            this.draw_triangle(graphics_state, model_transform);
-            // this.draw_outline(graphics_state, model_transform);
+            // this.draw_triangle(graphics_state, model_transform);
+            this.draw_outline(graphics_state, model_transform);
 
             // TODO: Draw the outline
             // this.draw_outline(graphics_state, model_transform);
