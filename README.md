@@ -1,4 +1,9 @@
-# CS174A
+# UCLA CS-174A Discussion 1B
+
+@ Yunqi Guo\
+@ Instructor: Dr. Asish Law\
+@ https://github.com/luckiday/cs174a-1b-2020s
+
 
 ## Week 1
 
