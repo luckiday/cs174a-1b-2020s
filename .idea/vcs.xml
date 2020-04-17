@@ -5,5 +5,6 @@
     <mapping directory="$PROJECT_DIR$/demos/Team Costcode" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/week_1/A1" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/week_1/A1--luckiday" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../2020W/cs174a-1a-2020w" vcs="Git" />
   </component>
 </project>
