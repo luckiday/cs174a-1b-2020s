@@ -24,3 +24,9 @@
   - Scaling
   - Rotation
   - Shearing
+  
+## Week 4
+
+- Change of basis
+- Model-view transformation
+- Midterm Review
