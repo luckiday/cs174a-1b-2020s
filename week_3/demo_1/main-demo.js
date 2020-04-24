@@ -130,24 +130,71 @@ window.Demo_Scene = window.classes.Demo_Scene =
             graphics_state.lights = this.lights;
 
             let model_transform = Mat4.identity();
-
             // Draw the outline
             this.draw_outline(graphics_state, model_transform);
 
             // TODO: Translate
+            // let T = Mat4.translation([2, 0, 0]);
+            //
+            // let T = Mat.of(
+            //     [1, 0, 0, 3],
+            //     [0, 1, 0, 0],
+            //     [0, 0, 1, 0],
+            //     [0, 0, 0, 1],
+            // );
+            // model_transform = model_transform.times(T);
+            // // console.log(model_transform);
+            // this.draw_outline(graphics_state, model_transform);
 
             // TODO: Scaling
-
+            // let S = Mat4.scale([2, 3, 1,]);
+            // let S = Mat.of(
+            //     [2, 0, 0, 0],
+            //     [0, 1, 0, 0],
+            //     [0, 0, 1, 0],
+            //     [0, 0, 0, 1],
+            // );
+            // model_transform = model_transform.times(S);
+            // console.log(model_transform);
+            // this.draw_outline(graphics_state, model_transform);
 
             // TODO: Rotate
+            // let R = Mat4.rotation(Math.PI/4, Vec.of(0,0,1));
+            // let theta = Math.PI/4;
+            // let R = Mat.of(
+            //     [Math.cos(theta), -Math.sin(theta), 0, 0],
+            //     [Math.sin(theta), Math.cos(theta), 0, 0],
+            //     [0, 0, 1, 0],
+            //     [0, 0, 0, 1],
+            // );
+            // model_transform = model_transform.times(R);
+            // this.draw_outline(graphics_state, model_transform);
 
             // TODO: Shear
+            // let Shear = Mat.of(
+            //     [1, 0.5, 0, 0],
+            //     [0, 1, 0, 0],
+            //     [0, 0, 1, 0],
+            //     [0, 0, 0, 1],
+            // );
+            // model_transform = model_transform.times(R).times(S);
+            // this.draw_outline(graphics_state, model_transform);
 
             // TODO: Transformations
 
             // TODO: Animation
-            const t = this.t = graphics_state.animation_time / 1000;
+            let t = this.t = graphics_state.animation_time / 1000;
+            console.log(t);
+            let T = Mat4.translation([0.5, 0, 0]);
+            let R = Mat4.rotation(Math.PI/20 * t, Vec.of(0,0,1));
+            for (let i = 0; i < 10; i++) {
+                model_transform = model_transform.times(T).times(R);
+                // let current_transform = Mat4.translation([-5,-5,0]).times(model_transform);
+                this.draw_outline(graphics_state, model_transform);
+            }
 
+            t = this.t = graphics_state.animation_time / 1000;
+            console.log(t);
             // TODO: (Practice) Use reflection, scaling, translation, and rotation together to draw a tree.
         }
     };
