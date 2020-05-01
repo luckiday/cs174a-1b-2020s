@@ -62,9 +62,15 @@ window.Assignment_Three_Scene = window.classes.Assignment_Three_Scene =
 
             // TODO:  Draw the sun
             let transformation_sun = Mat4.identity();
+            transformation_sun = transformation_sun.times(Mat4.scale([2, 2, 2]));
+            this.shapes.sun_1.draw(graphics_state, transformation_sun, this.materials.sun);
 
             // TODO: Draw Planet 1
             let transformation_planet = Mat4.identity();
+            transformation_planet = transformation_planet.times(Mat4.rotation(t, Vec.of(0,1,0)));
+            transformation_planet = transformation_planet.times(Mat4.translation([5, 0, 0]));
+            transformation_planet = transformation_planet.times(Mat4.rotation(2*t, Vec.of(1,1,0)));
+            this.shapes.planet1.draw(graphics_state, transformation_planet, this.materials.planet1);
 
 
             // TODO: Change to the planet view
