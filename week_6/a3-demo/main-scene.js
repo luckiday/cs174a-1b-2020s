@@ -18,6 +18,7 @@ window.Assignment_Three_Scene = window.classes.Assignment_Three_Scene =
 
                 // TODO:  Fill in shapes for sun and planet 1
                 sun_1: new (Subdivision_Sphere)(4),
+                sun_2: new (Subdivision_Sphere.prototype.make_flat_shaded_version())(2),
                 planet1: new (Subdivision_Sphere.prototype.make_flat_shaded_version())(2)
             };
             this.submit_shapes(context, shapes);
@@ -34,10 +35,10 @@ window.Assignment_Three_Scene = window.classes.Assignment_Three_Scene =
                         gouraud: true,
                     }),
                     planet1: context.get_instance(Phong_Shader).material(Color.of(.9, .9, .9, 1), {
-                        ambient: .1,
+                        ambient: .5,
                         diffusivity: .7,
                         specular: 1,
-                        // gouraud: true,
+                        gouraud: true,
                     })
                 };
 
